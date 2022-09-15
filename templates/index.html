@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--head-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<!--body-->
+<body>
+<!--wrapper-->
+<div class="wrapper">
+    <div class="top">
+        <div class="title"><h1>My Blog</h1></div>
+    </div>
+<!-- For loop to list the different blogs usin jinja template-->
+    {% for blog in blogs: %}
+    <div class="content">
+        <div class="card">
+            <h2>{{blog["title"]}}</h2>
+            <p class="text">{{blog["subtitle"]}} </p>
+<!-- <a> tag links to the rest of the blog post, this link calls the get_blog() function
+in main.py and passes in the id of the blog as a parameter-->
+            <a href={{url_for("get_blog", num = blog["id"])}}>Read</a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+</body>
+<footer>
+    <p>.</p>
+</footer>
+</html>
